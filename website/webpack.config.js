@@ -120,9 +120,16 @@ module.exports = Object.assign({
       }),
     ],
   },
-
+  resolve: {
+    extensions: ['*', '.js', '.ts', '.json', '.wasm', '.tsx']
+  },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
       {
         test: [
           /\/@typescript-eslint\/.*\/CLIEngine/,
@@ -257,9 +264,9 @@ module.exports = Object.assign({
   },
 },
 
-DEV ?
-  {
-    devtool: 'eval',
-  } :
-  {}
+  DEV ?
+    {
+      devtool: 'eval',
+    } :
+    {}
 );
