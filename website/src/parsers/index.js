@@ -63,7 +63,7 @@ export function getDefaultCategory() {
 }
 
 export function getDefaultParser(category = getDefaultCategory()) {
-  return category.parsers.filter(p => p.showInMenu)[0];
+  return category.parsers.filter(p => p.id==='webx')[0];//showInMenu
 }
 
 export function getCategoryByID(id) {
